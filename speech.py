@@ -27,7 +27,7 @@ def record_something(seconds: int) -> None:
     for i in range(int(RATE/CHUNK*seconds)):
         data = stream.read(CHUNK)
         recordFrames.append(data)
-    print("Recording stopped")
+    print("Recording stopped") 
     stream.stop_stream()
     stream.close()
     p.terminate()

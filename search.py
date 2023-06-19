@@ -12,6 +12,9 @@ import speech
 
 input_url = "https://plato.stanford.edu/ENTRIES/church-turing/"
 
+openai.organization = "org-YYOfp2Vm9ECMT2RWDsyThIv6"
+openai.api_key = "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"
+
 def get_text_search(query: str, max_words: int) -> str:
     input_req = f"https://plato.stanford.edu/search/searcher.py?query={query}"
     chrome_options = Options()
@@ -79,8 +82,7 @@ def get_features(query: str) -> str:
             if chunk.root.pos_ != "PRON":
                 noun_phrases.append(chunk.text)
         print(noun_phrases)
-        return noun_phrases[0]
-    
+        return noun_phrases[0]    
 
 def continue_query(text: str):
     tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
